@@ -39,7 +39,7 @@ class Login extends Component {
                             <Input />
                         </Item>
                     </Form>
-                    <Button block primary
+                    <Button block primary onPress={() => this.props.navigation.replace('Home')}
                         style={LoginStyles.loginBtn}>
                         <Text>
                             Login
