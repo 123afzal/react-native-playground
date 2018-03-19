@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import reducers from './reducers';
+import reducers from './src/reducers';
 import thunk from "redux-thunk";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 
-import Login from './src/screens/Login';
+import Routes from './src/routes';
 
 const composeEnhancers = compose;
 const store = createStore(
@@ -16,10 +16,10 @@ const store = createStore(
 
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <Provider store={store}>
-        <Login />
+        <Routes />
       </Provider>
     );
   }
