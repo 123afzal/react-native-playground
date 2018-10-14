@@ -28,6 +28,9 @@ class Sidebar extends Component {
                         <ListItem onPress={() => { this.props.navigation.dispatch(resetAction('Home')); }}>
                             <Text>Home</Text>
                         </ListItem>
+                        <ListItem onPress={() => { this.props.navigation.dispatch(resetAction('Chart')); }}>
+                            <Text>Chart</Text>
+                        </ListItem>
                         <ListItem onPress={() => { this.props.navigation.dispatch(resetAction('Tabs')); }}>
                             <Text>Tabs</Text>
                         </ListItem>

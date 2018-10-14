@@ -10,6 +10,7 @@ import Sidebar from './components/sidebar';
 import Tabs from './components/tabs';
 import Login from './screens/Login';
 import Home from './screens/Home';
+import Chart from './screens/Chart';
 
 
 import { StackNavigator, DrawerNavigator, TabNavigator } from 'react-navigation';
@@ -27,6 +28,9 @@ const RootStack = StackNavigator(
         },
         Home: {
             screen: Home,
+        },
+        Chart: {
+            screen: Chart
         },
         Tabs: {
             screen: ({ navigation }) => <Tabs screenProps={{ rootNavigation: navigation }} />,
