@@ -26,25 +26,17 @@ class Chart extends Component {
         this.state = {
             legend: {
                 enabled: true,
-                textSize: 14,
-                form: 'SQUARE',
-                formSize: 12,
-                formToTextSpace: 6,
-                wordWrapEnabled: false,
-                maxSizePercent: 0.5,
                 horizontalAlignment:'CENTER'
             },
             data: {
                 dataSets: [{
-                    values: [{y: 1.00}, {y: 1.75}, {y: 1.}, {y: 1.55}, {y: 2.00}, {y: 3.05}, {y: 7.45}, {y: 8.50}, {y: 9.00},
-                        {y: 1.75}, {y: 1.45}, {y: 1.05}, {y: 2.00}, {y: 2.01}, {y: 2.05}, {y: 2.35}, {y: 2.30}, {y: 2.60},
-                        {y: 2.60}, {y: 3.50}, {y: 10.00}, {y: 9.65}, {y: 7.00}, {y: 6.00}, {y: 8.00}, {y: 7.00}, {y: 6.00}],
+                    values: [{y: 1.00}, {y: 1.75}, {y: 1.50}, {y: 1.55}, {y: 5.00}, {y: 3.05}, {y: 7.45}, {y: 8.50}, {y: 9.00},
+                        {y: 5.50}, {y: 1.45}, {y: 9.50}, {y: 8.00}, {y: 7.31}, {y: 6.05}, {y: 4.35}, {y: 6.30}, {y: 4.60},
+                        {y: 7.60}],
                     label: 'Years',
                     config: {
                         color: processColor('#0984e3'),
-                        // barShadowColor: processColor('lightgrey'),
-                        // highlightAlpha: 90,
-                        // highlightColor: processColor('red'),
+                        valueTextSize: 10,
                     },
                 }],
 
@@ -87,7 +79,96 @@ class Chart extends Component {
             },
             descript:{
                 text: ''
-            }
+            },
+            animation:{
+                durationX: 4000,
+                durationY: 3000,
+                // easingX: 'EaseInCirc',
+                // easingY: 'EaseInCirc',
+                // random: Math.random()
+            },
+
+            data1: {
+                dataSets: [{
+                    values: [2.35],
+                    label: 'SOHAR (SEA PORT)',
+                    config: {
+                        drawValues: true,
+                        valueTextSize: 10,
+                        colors: [processColor('#0984e3')],
+                    }
+                }, {
+                    values: [0.20],
+                    label: 'MINA SALALAH (SEA PORT)',
+                    config: {
+                        drawValues: true,
+                        valueTextSize: 10,
+                        colors: [processColor('#ff7f0e')],
+                    }
+                }, {
+                    values: [0.15],
+                    label: 'AL DUQM (SEA PORT)',
+                    config: {
+                        drawValues: true,
+                        valueTextSize: 10,
+                        colors: [processColor('#2ca02c')],
+                    }
+                },
+                    {
+                        values: [0.10],
+                        label: 'SUR (SEA PORT)',
+                        config: {
+                            drawValues: true,
+                            valueTextSize: 10,
+                            colors: [processColor('#d62728')],
+                        }
+                    }
+                ],
+                config: {
+                    barWidth: 0.8,
+                    group: {
+                        fromX: 0,
+                        groupSpace: 0.1,
+                        barSpace: 0.1,
+                    },
+                }
+            },
+
+            xAxis1: {
+                granularityEnabled: true,
+                granularity : 1,
+                axisMaximum: 5,
+                axisMinimum: -2,
+                enabled: true,
+                drawLabels: false,
+                drawAxisLine: true,
+                drawGridLines: false,
+                position:'BOTTOM',
+                axisLineWidth: 2,
+                axisLineColor: processColor('grey'),
+            },
+
+            yAxis1: {
+                left: {
+                    enabled: true,
+                    drawLabels: true,
+                    drawAxisLine: true,
+                    axisLineColor: processColor('grey'),
+                    drawGridLines: false,
+                    axisLineWidth: 2,
+                    axisMinimum:0.00,
+                    valueFormatter: '0.00'
+                },
+                right: {
+                    enabled: false,
+                }
+            },
+
+            legend1: {
+                enabled: true,
+                wordWrapEnabled: true,
+                textSize: 10,
+            },
         };
     }
 
@@ -115,7 +196,10 @@ class Chart extends Component {
                 backgroundColor:'#fff'
             }}>
                 <View style={{height:250, width:350}}>
-                    <Text style={styles.vertcileLable}>
+                    <Text style={styles.horizontalLable}>
+                        Imports by Year
+                    </Text>
+                    <Text style={styles.verticleLable}>
                         billions
                     </Text>
                     <BarChart
@@ -123,13 +207,27 @@ class Chart extends Component {
                         data={this.state.data}
                         xAxis={this.state.xAxis}
                         yAxis={this.state.yAxis}
-                        animation={{durationX: 2000}}
+                        animation={this.state.animation}
                         legend={this.state.legend}
                         gridBackgroundColor={processColor('#ffffff')}
                         visibleRange={{x: { min: 10, max: 10}}}
-                        maxVisibleValueCount={10}
                         onChange={(event) => console.log(event.nativeEvent)}
                         labelRotationAngle={45}
+                        chartDescription={this.state.descript}
+                        drawValueAboveBar={true}
+                    />
+                </View>
+                <View style={{width:350, height:250}}>
+                    <Text style={styles.verticleLable}>
+                        billions
+                    </Text>
+                    <BarChart
+                        style={styles.chart}
+                        xAxis={this.state.xAxis1}
+                        yAxis={this.state.yAxis1}
+                        animation={this.state.animation}
+                        data={this.state.data1}
+                        legend={this.state.legend1}
                         chartDescription={this.state.descript}
                     />
                 </View>
@@ -162,12 +260,17 @@ const styles = StyleSheet.create({
     chart: {
         flex: 1
     },
-    vertcileLable:{
+    verticleLable:{
         color: "#000",
         transform: [{ rotate: "-90deg" }],
         top:30,
         left:30,
         position:"absolute",
         fontSize:10,
+    },
+    horizontalLable:{
+        color: "#000",
+        textAlign:'center',
+        fontSize:12,
     }
 });
