@@ -30,13 +30,16 @@ class Chart extends Component {
             },
             data: {
                 dataSets: [{
-                    values: [{y: 1.00}, {y: 1.75}, {y: 1.50}, {y: 1.55}, {y: 5.00}, {y: 3.05}, {y: 7.45}, {y: 8.50}, {y: 9.00},
-                        {y: 5.50}, {y: 1.45}, {y: 9.50}, {y: 8.00}, {y: 7.31}, {y: 6.05}, {y: 4.35}, {y: 6.30}, {y: 4.60},
-                        {y: 7.60}],
+                    values: [{y: 0.59, marker:"598171722"}, {y: 0.68, marker:"681563414"}, {y: 0.79, marker:"791448859"}, {y: 0.85, marker:"853062606"},
+                             {y: 0.86, marker:"862871729"}, {y: 1.05, marker:"1055286452"}, {y: 0.87, marker:"870360540"}, {y: 1.10, marker:"1104211022"},
+                             {y: 1.50, marker:"1500228973"}, {y: 2.18, marker:"2189662300"}, {y: 1.65, marker:"1654405431"}, {y: 2.03, marker:"2033588537"},
+                             {y: 2.22, marker:"2229980773"}, {y: 2.47, marker:" 2473797401"}, {y: 2.65, marker:"2656157014"}, {y: 3.38, marker:"3386526093"},
+                             {y: 3.31, marker:"3318278557"}, {y: 2.84, marker:"2849084328"}, {y: 2.98, marker:"2986924084"}, {y:1.52, marker:"1527832733"}],
                     label: 'Years',
                     config: {
                         color: processColor('#0984e3'),
-                        valueTextSize: 10,
+                        drawValues: false,
+
                     },
                 }],
 
@@ -68,9 +71,9 @@ class Chart extends Component {
                     axisLineColor: processColor('grey'),
                     drawGridLines: false,
                     axisLineWidth: 2,
-                    labelCount:10,
+                    labelCount:8,
                     axisMinimum:0.00,
-                    axisMaximum:10.00,
+                    // axisMaximum:10.00,
                     valueFormatter: '0.00'
                 },
                 right: {
@@ -89,38 +92,98 @@ class Chart extends Component {
             },
 
             data1: {
-                dataSets: [{
-                    values: [2.35],
-                    label: 'SOHAR (SEA PORT)',
+                dataSets: [
+                    {
+                        values: [{y:0.85, marker:"850552458"}],
+                        label: 'AL.WAJAJAH (BORDER POST)',
+                        config: {
+                            drawValues: false,
+                            colors: [processColor('#0984e3')],
+                        }
+                    }, {
+                        values: [{y:0.23, marker:"235222374"}],
+                        label: 'WADI JIZZI (BORDER POST)',
+                        config: {
+                            drawValues: false,
+                            colors: [processColor('#ff7f0e')],
+                        }
+                    },
+                    {
+                        values: [{y:0.13, marker:"131074724"}],
+                        label: 'KHATMAT MILAHA (BORDER POST)',
+                        config: {
+                            drawValues: false,
+                            colors: [processColor('#2ca02c')],
+                        }
+                    },
+                    {
+                    values: [{y:0.11, marker:"115459395"}],
+                    label: 'DIRECTORATE GENERAL OF CUSTOMS (BORDER POST)',
                     config: {
-                        drawValues: true,
-                        valueTextSize: 10,
-                        colors: [processColor('#0984e3')],
+                        drawValues: false,
+                        colors: [processColor('#d62728')],
                     }
                 }, {
-                    values: [0.20],
-                    label: 'MINA SALALAH (SEA PORT)',
+                    values: [{y:0.07, marker:"79672320"}],
+                    label: 'HAFEET (BORDER  POST)',
                     config: {
-                        drawValues: true,
-                        valueTextSize: 10,
-                        colors: [processColor('#ff7f0e')],
+                        drawValues: false,
+                        colors: [processColor('#9467bd')],
                     }
                 }, {
-                    values: [0.15],
-                    label: 'AL DUQM (SEA PORT)',
+                    values: [{y:0.05, marker:"55181157"}],
+                    label: 'AL DAARA (BORDER POST)',
                     config: {
-                        drawValues: true,
-                        valueTextSize: 10,
-                        colors: [processColor('#2ca02c')],
+                        drawValues: false,
+                        colors: [processColor('#8c564b')],
                     }
                 },
                     {
-                        values: [0.10],
-                        label: 'SUR (SEA PORT)',
+                        values: [{y:0.04, marker:"41195358"}],
+                        label: 'AL.MAZYOONA (BORDER POST)',
                         config: {
-                            drawValues: true,
-                            valueTextSize: 10,
-                            colors: [processColor('#d62728')],
+                            drawValues: false,
+                            colors: [processColor('#e377c2')],
+                        }
+                    },
+                    {
+                        values: [{y:0.009, marker:"9097016"}],
+                        label: 'AL.BURAIMI (BORDER POST)',
+                        config: {
+                            drawValues: false,
+                            colors: [processColor('#7f7f7f')],
+                        }
+                    },
+                    {
+                        values: [{y:0.009, marker:"9067180"}],
+                        label: 'AL RUSSAIL (BORDER POST)',
+                        config: {
+                            drawValues: false,
+                            colors: [processColor('#bcbd22')],
+                        }
+                    },
+                    {
+                        values: [{y:0.001, marker:"1142231"}],
+                        label: 'WADI SAA (BORDER POST)',
+                        config: {
+                            drawValues: false,
+                            colors: [processColor('#17becf')],
+                        }
+                    },
+                    {
+                        values: [{y:0.00, marker:"133214"}],
+                        label: 'DIBA PORT (BORDER POST)',
+                        config: {
+                            drawValues: false,
+                            colors: [processColor('#1f77b4')],
+                        }
+                    },
+                    {
+                        values: [{y:0.00, marker:"133214"}],
+                        label: 'SARFAIT (BORDER POST)',
+                        config: {
+                            drawValues: false,
+                            colors: [processColor('#ff7f0e')],
                         }
                     }
                 ],
@@ -137,8 +200,8 @@ class Chart extends Component {
             xAxis1: {
                 granularityEnabled: true,
                 granularity : 1,
-                axisMaximum: 5,
-                axisMinimum: -2,
+                axisMaximum: 12,
+                axisMinimum: -1,
                 enabled: true,
                 drawLabels: false,
                 drawAxisLine: true,
@@ -168,6 +231,13 @@ class Chart extends Component {
                 enabled: true,
                 wordWrapEnabled: true,
                 textSize: 10,
+            },
+
+            marker: {
+                enabled: true,
+                markerColor: processColor('#000'),
+                textColor: processColor('#fff'),
+                markerFontSize: 12,
             },
         };
     }
@@ -214,7 +284,8 @@ class Chart extends Component {
                         onChange={(event) => console.log(event.nativeEvent)}
                         labelRotationAngle={45}
                         chartDescription={this.state.descript}
-                        drawValueAboveBar={true}
+                        marker={this.state.marker}
+
                     />
                 </View>
                 <View style={{width:350, height:250}}>
@@ -229,6 +300,7 @@ class Chart extends Component {
                         data={this.state.data1}
                         legend={this.state.legend1}
                         chartDescription={this.state.descript}
+                        marker={this.state.marker}
                     />
                 </View>
             </View>
